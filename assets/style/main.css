@@ -1,0 +1,54 @@
+#title{
+    color:#00bcb8 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    line-height: 1!important;
+    letter-spacing: .02em!important;
+    font-family: Roboto,sans-serif!important;
+    text-align:center !important;
+}
+
+.title-after-login{
+    color:#00bcb8 !important;
+    font-size: 50px !important;
+    font-weight: 700 !important;
+    margin:auto;
+    font-family: Roboto,sans-serif!important;
+    text-align:center !important;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-red{
+    color:red;
+}
+
+.font-roboto{
+    font-family: Roboto,sans-serif!important;
+}
+
+.footer{
+    text-align: center !important;
+    font-size: 12px!important;
+    font-weight: 400;
+    margin-bottom: 16px;
+    padding: 2px !important;
+}
+
+.background-layout{
+    background-color: #b3d4fc;
+    color: #000;
+    text-shadow: none;
+}
+
+.page-login{
+    background: #fff;
+    padding: 0 16px 16px 16px;
+    min-height: 100% !important;
+}
+
+.set-padding {
+    padding: 0 16px 16px 16px !important;
+}
