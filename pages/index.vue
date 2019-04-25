@@ -6,10 +6,10 @@
   >
     <v-flex xs12 sm11 md11>
       <v-container>
-        <h1 id="title">Masuk Sebagai Penjual</h1>
+        <h1 id="title">Masuk Sebagai Pembaca</h1>
       </v-container>
       
-      <v-form v-model="valid" lazy-validation >
+      <v-form v-model="valid" >
         <v-text-field
           v-model="username"
           :rules="[rules.ruleUsername, rules.minUsername]"
