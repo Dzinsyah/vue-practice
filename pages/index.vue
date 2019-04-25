@@ -153,7 +153,7 @@ export default {
       this.loading = true
       setTimeout(() => (
         this.loading = false,
-        this.$router.push('/landingPage')
+        this.$router.push('/home')
         ), 2000)
     },
 

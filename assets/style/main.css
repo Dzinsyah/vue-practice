@@ -52,3 +52,19 @@
 .set-padding {
     padding: 0 16px 16px 16px !important;
 }
+
+.images-news {
+    max-height: 200px !important;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.basecolor{
+    background-color:#00bcb8 !important;
+}
+
+.colorbase{
+    color:#00bcb8 !important;
+}
