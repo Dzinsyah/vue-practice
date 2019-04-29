@@ -1,10 +1,13 @@
 <template>
   <div>
-    <v-toolbar tabs>
-
-      <v-toolbar-title class="colorbase center">Kategori Berita</v-toolbar-title>
-
-      <v-spacer></v-spacer>
+    <Menu />
+    <v-toolbar 
+      class="customToolbar"
+      tabs
+    >
+      <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
+      <!-- <v-toolbar-title class="colorbase margin-auto">Kategori Berita</v-toolbar-title> -->
+      <!-- <v-spacer></v-spacer> -->
 
       <template v-slot:extension>
         <v-tabs
@@ -42,12 +45,24 @@
         value="mobile-tabs-5-1"
       >
         <v-card v-for="berita in news.articles" :key="berita.title">
-          <v-img
-          :src="berita.urlToImage"
-          aspect-ratio="1"
-          class="images-news"
-          >
-          </v-img>
+            
+          <div v-if="berita.urlToImage !== null">
+            <v-img 
+            :src="berita.urlToImage"
+            aspect-ratio="1"
+            class="images-news"
+            >
+            </v-img>
+          </div>
+
+          <div v-else>
+            <v-img
+            :src="`https://media.wsls.com/photo/2017/04/24/Whats%20News%20Today_1493062809311_9576980_ver1.0_1280_720.png`"
+            aspect-ratio="1"
+            class="images-news"
+            >
+            </v-img>
+          </div>
 
           <v-card-title primary-title>
             <div>
@@ -62,12 +77,24 @@
           value="mobile-tabs-5-2"
         >
           <v-card v-for="olahraga in sports.articles" :key="olahraga.title">
-            <v-img
-            :src="olahraga.urlToImage"
-            aspect-ratio="1"
-            class="images-news"
-            >
-            </v-img>
+            
+            <div v-if="olahraga.urlToImage !== null">
+              <v-img 
+              :src="olahraga.urlToImage"
+              aspect-ratio="1"
+              class="images-news"
+              >
+              </v-img>
+            </div>
+
+            <div v-else>
+              <v-img
+              :src="`https://media.wsls.com/photo/2017/04/24/Whats%20News%20Today_1493062809311_9576980_ver1.0_1280_720.png`"
+              aspect-ratio="1"
+              class="images-news"
+              >
+              </v-img>
+            </div>
 
             <v-card-title primary-title>
               <div>
@@ -82,12 +109,24 @@
           value="mobile-tabs-5-3"
         >
           <v-card v-for="hiburan in entertainment.articles" :key="hiburan.title">
-            <v-img
-            :src="hiburan.urlToImage"
-            aspect-ratio="1"
-            class="images-news"
-            >
-            </v-img>
+            
+            <div v-if="hiburan.urlToImage !== null">
+              <v-img 
+              :src="hiburan.urlToImage"
+              aspect-ratio="1"
+              class="images-news"
+              >
+              </v-img>
+            </div>
+
+            <div v-else>
+              <v-img
+              :src="`https://media.wsls.com/photo/2017/04/24/Whats%20News%20Today_1493062809311_9576980_ver1.0_1280_720.png`"
+              aspect-ratio="1"
+              class="images-news"
+              >
+              </v-img>
+            </div>
 
             <v-card-title primary-title>
               <div>
@@ -102,12 +141,24 @@
           value="mobile-tabs-5-4"
         >
           <v-card v-for="teknologi in technology.articles" :key="teknologi.title">
-            <v-img
-            :src="teknologi.urlToImage"
-            aspect-ratio="1"
-            class="images-news"
-            >
-            </v-img>
+            
+            <div v-if="teknologi.urlToImage !== null">
+              <v-img 
+              :src="teknologi.urlToImage"
+              aspect-ratio="1"
+              class="images-news"
+              >
+              </v-img>
+            </div>
+
+            <div v-else>
+              <v-img
+              :src="`https://media.wsls.com/photo/2017/04/24/Whats%20News%20Today_1493062809311_9576980_ver1.0_1280_720.png`"
+              aspect-ratio="1"
+              class="images-news"
+              >
+              </v-img>
+            </div>
 
             <v-card-title primary-title>
               <div>
@@ -122,12 +173,24 @@
           value="mobile-tabs-5-5"
         >
           <v-card v-for="bisnis in business.articles" :key="bisnis.title">
-            <v-img
-            :src="bisnis.urlToImage"
-            aspect-ratio="1"
-            class="images-news"
-            >
-            </v-img>
+            
+            <div v-if="bisnis.urlToImage !== null">
+              <v-img 
+              :src="bisnis.urlToImage"
+              aspect-ratio="1"
+              class="images-news"
+              >
+              </v-img>
+            </div>
+
+            <div v-else>
+              <v-img
+              :src="`https://media.wsls.com/photo/2017/04/24/Whats%20News%20Today_1493062809311_9576980_ver1.0_1280_720.png`"
+              aspect-ratio="1"
+              class="images-news"
+              >
+              </v-img>
+            </div>
 
             <v-card-title primary-title>
               <div>
@@ -162,8 +225,25 @@
   </div>
 </template>
 
+<style scoped>
+
+.customToolbar >>> .v-toolbar__content {
+  height: 0px !important;
+  /* text-align: center !important; */
+}
+
+</style>
+
 <script>
+  import Header from "~/components/Header.vue"
+  import Menu from "~/components/Menu.vue"
+  
   export default {
+
+    components: {
+      Header,
+      Menu
+    },
 
     data () {
       return {
