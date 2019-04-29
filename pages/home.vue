@@ -1,10 +1,13 @@
 <template>
   <div>
-    <v-toolbar tabs>
-
-      <v-toolbar-title class="colorbase center">Kategori Berita</v-toolbar-title>
-
-      <v-spacer></v-spacer>
+    <Menu />
+    <v-toolbar 
+      class="customToolbar"
+      tabs
+    >
+      <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
+      <!-- <v-toolbar-title class="colorbase margin-auto">Kategori Berita</v-toolbar-title> -->
+      <!-- <v-spacer></v-spacer> -->
 
       <template v-slot:extension>
         <v-tabs
@@ -222,8 +225,25 @@
   </div>
 </template>
 
+<style scoped>
+
+.customToolbar >>> .v-toolbar__content {
+  height: 0px !important;
+  /* text-align: center !important; */
+}
+
+</style>
+
 <script>
+  import Header from "~/components/Header.vue"
+  import Menu from "~/components/Menu.vue"
+  
   export default {
+
+    components: {
+      Header,
+      Menu
+    },
 
     data () {
       return {

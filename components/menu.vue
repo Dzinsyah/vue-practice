@@ -1,21 +1,11 @@
 
 <template>
   <v-layout
-    wrap
-    style="height: 200px;"
+    class="title-menu"
   >
-    <v-container>
-      <v-layout justify-center>
-        <v-btn
-          dark
-          @click.stop="drawer = !drawer"
-        >
-        <v-icon @click.stop="drawer = !drawer">list</v-icon>
-          
-        </v-btn>
-        <v-icon>list</v-icon>
-      </v-layout>
-    </v-container>
+      <v-toolbar-side-icon
+      @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title class="title-menu">Baca Berita</v-toolbar-title>
 
     <v-navigation-drawer
       v-model="drawer"

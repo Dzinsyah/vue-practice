@@ -68,3 +68,13 @@
 .colorbase{
     color:#00bcb8 !important;
 }
+
+.title-menu{
+    margin-top: 5px;
+    font-family: Roboto,sans-serif!important;
+    color:white !important;
+    background-color:#00bcb8 !important;
+}
+.margin-auto{
+    margin: auto !important;
+}
