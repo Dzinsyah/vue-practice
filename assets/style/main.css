@@ -78,3 +78,18 @@
 .margin-auto{
     margin: auto !important;
 }
+
+.icon-btm-nav{
+    height: 22px;
+}
+
+.carousel-images{
+    height: 250px !important;
+    border-radius: 20%;
+    /* margin-top: 50px !important; */
+}
+
+.test{
+    height:300px !important;
+    margin-top:50px !important;
+}
