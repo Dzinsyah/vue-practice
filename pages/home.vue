@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Menu />
+    <Header />
     <v-toolbar 
       class="customToolbar"
       tabs
@@ -235,12 +235,12 @@
 </style>
 
 <script>
-  import Menu from "~/components/Menu.vue"
+  import Header from "~/components/Header.vue"
   
   export default {
 
     components: {
-      Menu
+      Header
     },
 
     data () {
