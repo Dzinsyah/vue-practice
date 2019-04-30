@@ -4,6 +4,15 @@ import pkg from './package'
 export default {
   mode: 'universal',
 
+  generate:{
+    routes: [
+      '/posts/what',
+      '/posts/how',
+      '/posts/frontend',
+      '/posts/backend'
+    ]
+  },
+
   /*
   ** Headers of the page
   */
