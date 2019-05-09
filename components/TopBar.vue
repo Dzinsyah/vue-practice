@@ -3,7 +3,7 @@
     <div class="container">
       <v-toolbar flat color="transparent">
         <v-btn icon :ripple="false" class="btnBack" @click="back">
-          <img width="32" height="32" src="~/assets/images/logo2.png" alt="<">
+          <v-icon>keyboard_arrow_left</v-icon>
         </v-btn>
         <v-toolbar-title class="headTitle">Gadget.Inc</v-toolbar-title>
         <div></div>
