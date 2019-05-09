@@ -16,12 +16,13 @@
   <v-container>
     <v-layout row wrap v-for="product in allList" :key="product.id">
       <v-flex xs5>
+        <nuxt-link :to="`/productdetail/${product.product_id}`">
         <v-img
           :src="product.url_image"
           :lazy-src="``"
-          aspect-ratio="1.3"
-          class="grey lighten-2 imageproduct"
+          class="img"
         />
+        </nuxt-link>        
       </v-flex>
       <v-flex xs7
         class="marginT-50"
@@ -40,24 +41,55 @@
         </v-layout>
       </v-flex>
     </v-layout>
-
-
   </v-container>
+      <v-speed-dial v-model="fabProduct" direction="top" transition="slide-y-reverse-transition">
+      <template v-slot:activator :fixed="true">
+        <v-btn v-model="fabProduct" class="fabIcon" color="error" fixed bottom right fab>
+          <v-icon>add</v-icon>
+          <v-icon>close</v-icon>
+        </v-btn>
+      </template>
+      <nuxt-link to="/products">
+        <v-btn class="button-inside text-none" dark color="secondary" >Pengajuan Produk Baru</v-btn>
+      </nuxt-link>
+      <!-- <nuxt-link to="/product/add">
+        <v-btn class="button-inside" dark color="secondary">Tambah Produk</v-btn>
+      </nuxt-link>-->
+    </v-speed-dial>
 </div>
-
 
 </template>
 
 <style scoped>
 
+.fabIcon {
+  top: 70%;
+  width: 64px;
+  height: 64px;
+  position: fixed;
+}
+/* start:: readjust style FAB & speed dial */
+.fabIcon.v-btn--floating .v-btn__content .v-icon {
+  font-size: 32px;
+  font-weight: 600;
+  display: inline-flex;
+}
+.fabIcon.v-btn--active {
+  border: solid 1px #e3e3e3 !important;
+  background-color: #f5f5f5 !important;
+  color: #383838 !important;
+}
+
 .customToolbar >>> .v-toolbar__content {
   height: 0px !important;
   /* text-align: center !important; */
 }
-.imageproduct{
+.img{
   margin-top:20px !important;
-  /* height: 100% !important; */
-  width: 100%;
+  max-height: 300px !important;
+  max-width: 100px !important;
+  height: auto;
+  width: auto;
 }
 .product-name {
   text-align: left;
