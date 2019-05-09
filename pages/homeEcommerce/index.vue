@@ -42,9 +42,9 @@
       </v-flex>
     </v-layout>
   </v-container>
-      <v-speed-dial v-model="fabProduct" direction="top" transition="slide-y-reverse-transition">
+      <v-speed-dial direction="top" transition="slide-y-reverse-transition">
       <template v-slot:activator :fixed="true">
-        <v-btn v-model="fabProduct" class="fabIcon" color="error" fixed bottom right fab>
+        <v-btn class="fabIcon" color="error" fixed bottom right fab>
           <v-icon>add</v-icon>
           <v-icon>close</v-icon>
         </v-btn>
@@ -170,7 +170,8 @@ p {
         //   })
         console.warn('gadget', gadget)
         console.warn('cekdataproduct', gadget.product)
-
+//         let tok = this.$store
+//  this.$store.state.posts.all.
         let dataProduct = gadget.product
         if (
           gadget.hasOwnProperty('product')
