@@ -9,7 +9,7 @@
         <h1 id="title">Masuk Sebagai Pembaca</h1>
       </v-container>
       
-      <v-form v-model="valid" >
+      <v-form ref="form" v-model="valid" @keyup.native.enter="valid && submit($event)">
         <v-text-field
           v-model="username"
           :rules="[rules.ruleUsername, rules.minUsername]"
@@ -127,16 +127,15 @@
   min-height: 2px;
 }
 
-
 </style>
 
 <script>
+
+import { mapState, mapActions, mapMutations } from 'vuex'
 export default {
   data () {
   return {
     show1: false,
-    password: '',
-    username: '',
     valid: true,
     loading: false,
     rules: {
@@ -148,13 +147,46 @@ export default {
   }
   },
 
+  computed: {
+    ...mapState({
+      username: state => state.user.username,
+      password: state => state.user.password
+      // loginLoading: state => state.user.loginLoading
+    }),
+    username: {
+      get() {
+        return this.$store.state.ecommerce.username
+      },
+      set(value) {
+        this.setState({ username: value })
+      }
+    },
+    password: {
+      get() {
+        return this.$store.state.ecommerce.password
+      },
+      set(value) {
+        this.setState({ password: value })
+      }
+    }
+  },
+
   methods :{
-    submit (){
-      this.loading = true
-      setTimeout(() => (
-        this.loading = false,
-        this.$router.push('/homeEcommerce')
-        ), 2000)
+    ...mapActions({ doLogin: 'ecommerce/doLogin' }),
+    ...mapMutations({ setState: 'ecommerce/setState' }),
+    // submit (){
+    //   this.loading = true
+    //   setTimeout(() => (
+    //     this.loading = false,
+    //     this.$router.push('/homeEcommerce')
+    //     ), 2000)
+    // },
+    submit() {
+      if (this.$refs.form.validate()) {
+        this.doLogin().finally(() => {
+          this.$router.replace('/homeEcommerce')
+        })
+      }
     },
 
     forgetPassword (){

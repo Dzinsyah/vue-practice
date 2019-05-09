@@ -13,7 +13,11 @@ export const state = () => ({
     status:"",
     stock:"",
     otherDescription:"",
-    price:""
+    price:"",
+    token:"",
+    isLogin:false,
+    username:"",
+    password:""
 
 })
 
@@ -70,6 +74,45 @@ export const actions = {
     //   commit('setDefaultOrderNewHome', resOrder)
     // },
 
+  getToken(
+    {commit, state})
+    {
+      const user = state.username
+      const pass = state.password
+      const urlAuth = 'https://cors-anywhere.herokuapp.com/http://13.58.84.95:8000//user/login?username=' + user + '&password=' + pass
+      // let credential = {
+      //   username : state.username,
+      //   password : state.password
+      // }
+      // let urlAuth = `https://cors-anywhere.herokuapp.com/http://13.58.84.95:8000//user/login`
+
+      return this.$axios
+        .$get(urlAuth)
+        .catch(error => {
+          const alertMsg = {
+            msg: 'get token failed'
+          }
+          console.warn('error get order: ', error)
+          return false
+        })
+  },
+
+  async doLogin({ dispatch, commit }) {
+    commit('setState', { isLoading: true })
+    console.warn('call getToken')
+    const loginReq = await dispatch('getToken')
+    console.warn('cek get token ', loginReq)
+    // console.warn('call postLogin done', loginReq)
+    if (loginReq.hasOwnProperty('token')) {
+      commit('setState', {
+        token: loginReq.token
+      })
+    }
+    console.warn('cek get token ', loginReq)
+    // setup auth cookies
+    // await dispatch('setupAuthCookies')
+  },
+
   getAllProduct(
     { commit },
     { xRequested }
@@ -80,7 +123,7 @@ export const actions = {
       })
       // this.$axios.setToken(token, 'Bearer')
   
-      let url_product = "https://cors-anywhere.herokuapp.com/http://13.58.84.95:8000/public/product?rp=8"
+      let url_product = "https://cors-anywhere.herokuapp.com/http://13.58.84.95:8000/public/product?rp=100"
 
       return this.$axios
         .$get(url_product)
